@@ -3,7 +3,7 @@ Retries a function returning a promise with a delay between each retry
 
 ## Usage
 ```js
-import retryPromise from '@huudan/retry-promise-util';
+import { retryPromise } from '@huudan/retry-promise-util';
 
 retryPromise(() => fetch('https://api.example.com'), {
   delay: 2000, // Milliseconds between each retry
