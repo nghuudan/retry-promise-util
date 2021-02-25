@@ -1,0 +1,14 @@
+{
+  "root": true,
+  "extends": ["airbnb-typescript/base"],
+  "plugins": ["@typescript-eslint"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "ignorePatterns": [
+    "/coverage",
+    "/dist",
+    "node_modules"
+  ]
+}
