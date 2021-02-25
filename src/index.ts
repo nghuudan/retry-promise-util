@@ -8,7 +8,7 @@ export class RetryPromiseError extends Error {
    */
   constructor(error: Error) {
     super('Maximum retries reached');
-    this.originalErrorMessage = error.message;
+    this.originalErrorMessage = error?.message;
   }
 }
 

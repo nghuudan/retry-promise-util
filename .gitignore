@@ -1,5 +1,6 @@
 /coverage
 /dist
+/esmodule
 node_modules
 .DS_Store
 *.log

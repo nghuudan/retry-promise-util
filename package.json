@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "rimraf dist && tsc -p tsconfig.dist.json && tsc -p tsconfig.esmodule.json",
+    "build": "rimraf dist esmodule && tsc -p tsconfig.dist.json && tsc -p tsconfig.esmodule.json",
     "lint": "eslint . --ext js,ts",
     "test": "jest",
     "test:coverage": "jest --coverage",

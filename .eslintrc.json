@@ -9,6 +9,7 @@
   "ignorePatterns": [
     "/coverage",
     "/dist",
+    "/esmodule",
     "node_modules"
   ]
 }

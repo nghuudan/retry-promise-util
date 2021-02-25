@@ -29,6 +29,14 @@ describe('retryPromise', () => {
     }
   });
 
+  it('should reject with an undefined original error message in the error', async () => {
+    try {
+      await retryPromise(() => Promise.reject());
+    } catch (error) {
+      expect(error.originalErrorMessage).toBeUndefined();
+    }
+  });
+
   it('should try for the number of retries in options', async () => {
     let totalCount = 0;
     try {
