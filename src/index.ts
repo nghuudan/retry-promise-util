@@ -29,7 +29,7 @@ export interface RetryPromiseOptions {
  * @param options delay in milliseconds, multiplier, and retries
  * @default options { delay: 1000, multiplier: 1, retries: 3 }
  */
-const retryPromise = <T = void>(
+export const retryPromise = <T = void>(
   promiseFn: RetryPromiseFunction<T>,
   options?: RetryPromiseOptions,
 ) => {

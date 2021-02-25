@@ -1,4 +1,4 @@
-import retryPromise from '.';
+import { retryPromise } from '.';
 
 describe('retryPromise', () => {
   const errorMock = new Error('error');
