@@ -1,0 +1,4 @@
+/coverage
+.eslintrc*
+jest.config.js
+tsconfig.*
