@@ -46,14 +46,15 @@ export const retryPromise = <T = void>(
   return new Promise<T>((resolve, reject) => {
     promiseFn().then(resolve).catch((error) => {
       if (retries > 0) {
-        retryPromise(promiseFn, {
-          delay: delay * multiplier,
-          retries: retries - 1,
-          multiplier,
-        }).catch(reject);
+        setTimeout(() => {
+          retryPromise(promiseFn, {
+            delay: delay * multiplier,
+            retries: retries - 1,
+            multiplier,
+          }).catch(reject);
+        }, delay);
       } else {
-        const retryError = new RetryPromiseError(error);
-        reject(retryError);
+        reject(new RetryPromiseError(error));
       }
     });
   });
