@@ -1,4 +1,5 @@
 /coverage
+/src
 .eslintrc*
 jest.config.js
 tsconfig.*
