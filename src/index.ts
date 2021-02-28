@@ -12,7 +12,7 @@ export class RetryPromiseError extends Error {
   }
 }
 
-export type RetryPromiseFunction<T = void> = () => Promise<T>;
+export type RetryPromiseFunction<T = void> = (retries: number) => Promise<T>;
 
 export interface RetryPromiseOptions {
   /** Delay between each retry in milliseconds */
@@ -44,14 +44,14 @@ export const retryPromise = <T = void>(
     ...options,
   };
   return new Promise<T>((resolve, reject) => {
-    promiseFn().then(resolve).catch((error) => {
+    promiseFn(retries).then(resolve).catch((error) => {
       if (retries > 0) {
         setTimeout(() => {
           retryPromise(promiseFn, {
             delay: delay * multiplier,
             retries: retries - 1,
             multiplier,
-          }).catch(reject);
+          }).then(resolve).catch(reject);
         }, delay);
       } else {
         reject(new RetryPromiseError(error));

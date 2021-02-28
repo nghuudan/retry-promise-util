@@ -48,4 +48,14 @@ describe('retryPromise', () => {
       expect(totalCount).toBe(6);
     }
   });
+
+  it('should retry until it resolves before maximum retries are reached', async () => {
+    const result = await retryPromise((retries) => {
+      if (retries < 3) {
+        return Promise.resolve('test');
+      }
+      return Promise.reject(errorMock);
+    }, { delay: 100, retries: 5 });
+    expect(result).toBe('test');
+  });
 });
